@@ -148,27 +148,40 @@ class FetchWidget extends BaseWidgetClass {
         document.getElementById('fileName').textContent = "";
     }
 
-    getCsvFile() {
-        const inputElm = document.getElementById("csvFile");
-        if (!inputElm.files.length) return;
-        const file = inputElm.files[0];
-        document.getElementById('fileName').textContent = file.name;
+    getSourceSettings(data) {
+        let settings;
+        let inputElm;
+
+        if (data.sourceName == 'csv') {
+            inputElm = document.getElementById("csvFile");
+        }
+        else if (data.sourceName == 'folder') {
+            inputElm = document.getElementById("imgFolder");
+        }
+
+        if (!inputElm || !inputElm.files.length) return;
+
+        if (data.sourceName == 'csv') {
+            settings = inputElm.files[0];
+            document.getElementById('fileName').textContent = settings.name;
+        }
+        else if (data.sourceName == 'folder') {
+            settings = Array.from(inputElm.files);
+        }
+
         inputElm.value = "";
-        return file;
-    }
-    getFolderFiles() {
-        const inputElm = document.getElementById("imgFolder");
-        const files = Array.from(inputElm.files);
-        inputElm.value = "";
-        return  files;
+        return  settings;
     }
 
-    getSettings() {
-        const urlCol = document.getElementById("urlColumn").value;
-        return {
-            column: urlCol,
-            method: 'http'
+    getSettings(data) {
+        if (data.method === 'http') {
+            data.column = document.getElementById("urlColumn").value;
         }
+        else if (data.method === 'thumbnail') {
+            data.column = 'fileobject';
+        }
+
+        return data;
     }
 
     updateColumnSelector(data) {

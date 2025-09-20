@@ -1,78 +1,51 @@
 
 /* Mode-specific adjustments */
 
-#processFolderWrapper,
-#folderWrapper {
+.hide {
     display: none;
 }
 
-.mode-geturl #processFolderWrapper,
-.mode-geturl #folderWrapper {
+/** Start stage **/
+.stage-start.mode-geturl .show-stage-start.show-mode-geturl,
+.stage-start.mode-getimg .show-stage-start.show-mode-getimg {
     display: flex;
 }
 
-
-.mode-geturl #processCsvWrapper,
-.mode-geturl #csvWrapper {
-    display: none;
-}
-
-#downloadZipBtn {
-    display: inline-block;
-}
-
-#downloadCsvBtn {
-    display: none;
-}
-
-.mode-geturl #downloadZipBtn {
-    display: none;
-}
-
-.mode-geturl #downloadCsvBtn {
-    display: inline-block;
-}
-
-
-/** Start stage **/
-
-#extractBtn,
-#fetchWidgetFolderColumn {
+.stage-start .hide-stage-start {
     display: none;
 }
 
 /** Select stage **/
-.stage-select-urls #dataWrapper,
-.stage-select-imgs #dataWrapper,
-.stage-select-urls #fetchWidgetColumn {
-  display: flex;
+.stage-select.mode-geturl .show-stage-select.show-mode-geturl,
+.stage-select.mode-getimg .show-stage-select.show-mode-getimg {
+    display: flex;
 }
 
-.stage-select-imgs.stage-select-urls #fetchWidgetFolderColumn,
-.stage-select-imgs #extractBtn {
+.stage-select.stage-select-column .show-stage-select-column {
+    display: flex;
+}
+
+.stage-source-csv .show-stage-source-csv,
+.stage-source-folder .show-stage-source-folder {
+    display: flex;
+}
+
+.stage-source-csv .show-stage-source-csv,
+.stage-source-folder .show-stage-source-folder {
     display: flex;
 }
 
 /** Fetch stage **/
-.stage-fetch #fetchWidgetSelectCsv,
-.stage-fetch #fetchWidgetSelectFolder,
-.stage-fetch #urlColumn,
-.stage-fetch #fetchBtn {
-  display: none;
-}
-
-.stage-fetch #fetchWidgetProgress
- {
+.stage-fetch .show-stage-fetch {
   display: flex;
 }
 
 /** Ready stage **/
-.stage-ready #fetchWidgetSelectCsv,
-.stage-ready #fetchWidgetSelectFolder,
-.stage-ready #stopBtn {
-  display:none;
+.stage-ready .show-stage-ready {
+  display: flex;
 }
 
-.stage-ready #fetchWidgetDownload {
-  display: flex;
+.stage-ready.stage-ready-zip button.show-stage-ready-zip,
+.stage-ready.stage-ready-csv button.show-stage-ready-csv {
+    display: inline-block;
 }

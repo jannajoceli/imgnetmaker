@@ -25,7 +25,7 @@ class WebApp {
         this.eventBus.on('app:input:changed', (data) => this.actionInput(data));
         this.eventBus.on('app:fetch:start', (data) => this.actionFetchStart(data));
         this.eventBus.on('app:fetch:stop', () => this.actionFetchStop());
-        this.eventBus.on('app:batch:ready', () => this.onBatchReady());
+        this.eventBus.on('app:batch:ready', (data) => this.onBatchReady(data));
         this.eventBus.on('app:download:start', (data) => this.actionDownload(data));
     }
 
@@ -49,24 +49,22 @@ class WebApp {
         try {
             const dataSource = this.dataModule.getDataSource(data.sourceName);
 
-            if (dataSource.name == 'csv') {
-                const file = this.pageWidget.fetchWidget.getCsvFile();
-                const result = await dataSource.load(file);
+            const sourceSettings = this.pageWidget.fetchWidget.getSourceSettings(data);
+            const result = await dataSource.load(sourceSettings);
 
+            if (dataSource.name == 'csv') {
                 this.pageWidget.fetchWidget.updateColumnSelector(result);
                 this.pageWidget.tableWidget.showData(result);
-                this.pageWidget.clearStage('start');
-                this.pageWidget.setStage('select-urls');
             }
 
             if (dataSource.name == 'folder') {
-                const files = this.pageWidget.fetchWidget.getFolderFiles();
-                const result = await dataSource.load(files);
-
                 this.pageWidget.folderWidget.showData(result);
-                this.pageWidget.clearStage('start');
-                this.pageWidget.setStage('select-imgs');
             }
+
+            this.pageWidget.clearStage('start');
+            this.pageWidget.setStage('select');
+            this.pageWidget.setStage('select-column');
+            this.pageWidget.setStage('source-' + dataSource.name);
 
         } catch (error) {
             const logEntry = Utils.createLogEntry(
@@ -88,16 +86,10 @@ class WebApp {
     async actionFetchStart(data) {
 
         this.pageWidget.clearStage();
-        this.pageWidget.setStage('fetch')
+        this.pageWidget.setStage('fetch');
+        this.pageWidget.setStage('source-' + data.sourceName);
 
-        let fetchSettings;
-        if (data.method === 'http') {
-            fetchSettings = this.pageWidget.fetchWidget.getSettings();
-        }
-        else if (data.method === 'thumbnail') {
-            fetchSettings = {'column': 'fileobject', 'method' : 'thumbnail'};
-        }
-
+        let fetchSettings = this.pageWidget.fetchWidget.getSettings(data);
         const source = this.dataModule.getDataSource(data.sourceName);
         this.requestModule.process(source, fetchSettings);
     }
@@ -112,9 +104,12 @@ class WebApp {
         target.download(source);
     }
 
-    onBatchReady() {
+    onBatchReady(data) {
         this.pageWidget.clearStage();
         this.pageWidget.setStage('ready');
+        this.pageWidget.setStage('ready-' + data.targetName);
+        this.pageWidget.setStage('source-' + data.sourceName);
+
     }
 
 }

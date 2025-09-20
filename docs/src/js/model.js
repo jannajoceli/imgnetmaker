@@ -32,7 +32,7 @@ class RequestModule {
         let processed = 0;
         const total = nodes.length;
 
-        this.events.emit('data:batch:start');
+        this.events.emit('data:batch:start', fetchSettings);
 
         for (let i = 0; i < nodes.length; i++) {
             if (this.stopFlag) break;
@@ -58,7 +58,7 @@ class RequestModule {
             this.events.emit('data:progress:step', {current: processed, total: total});
         }
 
-        this.events.emit('data:batch:finish');
+        this.events.emit('data:batch:finish', fetchSettings);
     }
 
     /**
@@ -468,8 +468,8 @@ class DataModule {
     /**
      * Finish batch
      */
-    onBatchFinish() {
-        this.events.emit('app:batch:ready');
+    onBatchFinish(data) {
+        this.events.emit('app:batch:ready', data);
     }
 
     /**

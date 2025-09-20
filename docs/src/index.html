@@ -54,37 +54,59 @@
 
       <div id="fetchWidget">
 
-        <div id="processCsvWrapper" class="inputWrapper">
+        <div id="processCsvWrapper" class="inputWrapper hide show-mode-getimg show-stage-start show-stage-select">
+
           <div id="fetchWidgetSelectCsv" class="box">
-            <label for="csvFile" class="upload-btn">Upload CSV</label>
+            <label for="csvFile" class="button">Upload CSV</label>
             <input type="file" id="csvFile" accept=".csv">
             <span id="fileName"></span>
           </div>
 
-          <div id="fetchWidgetColumn" class="box">
+          <div id="fetchWidgetColumn" class="box hide show-stage-select-column">
             <div class="input-wrapper input-wrapper-select">
               <label for="urlColumn">Select Image URL Column</label>
               <select id="urlColumn"></select>
             </div>
-            <button id="fetchBtn">Fetch Images</button>
+            <button id="fetchBtn" class="button-inline">Fetch Images</button>
           </div>
-
 
         </div>
 
-        <div id="processFolderWrapper" class="inputWrapper">
+        <div id="processFolderWrapper" class="inputWrapper hide show-mode-geturl show-stage-start show-stage-select">
+
           <div id="fetchWidgetSelectFolder" class="box">
-            <label for="imgFolder" class="upload-btn">Upload Folder</label>
+            <label for="imgFolder" class="button">Upload Folder</label>
             <input type="file" id="imgFolder" webkitdirectory multiple>
-           <div id="fetchWidgetFolderColumn" class="input-wrapper">
-              <label for="fileColumn">Select Image File Column: </label>
-              <select id="fileColumn"></select>
-            </div>
-            <button id="extractBtn">Extract Data Url</button>
           </div>
+
+          <div id="fetchWidgetFolderColumn" class="box input-wrapper hide show-stage-select-column">
+             <div class="input-wrapper input-wrapper-select hide">
+                <label for="fileColumn">Select Image File Column: </label>
+                <select id="fileColumn"></select>
+             </div>
+             <button id="extractBtn" class="button-inline">Extract Data Url</button>
+          </div>
+
         </div>
 
-        <div id="fetchWidgetProgress" class="box">
+        <div id="mergeCsvWrapper" class="inputWrapper hide">
+          <div id="mergeWidgetSelectCsv" class="box">
+            <label for="mergeCsvFile">Upload CSV</label>
+            <input type="file" id="mergeCsvFile" accept=".csv">
+            <span id="mergFileName"></span>
+          </div>
+
+          <div id="mergeWidgetColumn" class="box">
+            <div class="input-wrapper input-wrapper-select">
+              <label for="filenameColumn">Select Filename Column</label>
+              <select id="filenameColumn"></select>
+            </div>
+            <button id="mergeBtn">Merge CSV</button>
+          </div>
+
+        </div>
+
+        <div class="box hide show-stage-fetch">
           <div id="progressControls">
             <button id="stopBtn">Stop</button>
             <button id="showLogBtn">Show Error Log</button>
@@ -92,52 +114,52 @@
           </div>
         </div>
 
-        <div id="fetchWidgetDownload" class="box">
-          <button id="downloadZipBtn">Download ZIP</button>
-          <button id="downloadCsvBtn">Download CSV</button>
-          <button id="startOverBtn">Start Over</button>
+        <div class="box hide show-stage-ready">
+          <button id="downloadZipBtn" class="button hide show-stage-ready-zip">Download ZIP</button>
+          <button id="downloadCsvBtn" class="button hide show-stage-ready-csv">Download CSV</button>
+          <button id="startOverBtn" class="button">Start Over</button>
         </div>
       </div>
 
     </section>
 
-  <section id="dataWrapper">
-    <div id="csvWrapper" class="tableWrapper">
-      <table id="tableWidget" class="dataTable"></table>
-    </div>
-
-    <div id="folderWrapper" class="tableWrapper">
-      <table id="folderWidget" class="dataTable"></table>
-    </div>
-
-    <div id="logWidget" class="log-section">
-      <div class="log-header">
-        <h3>Error Log</h3>
-        <button id="toggleLogBtn">Hide Log</button>
+    <section id="dataWrapper" class="hide-stage-start">
+      <div id="csvWrapper" class="tableWrapper hide show-stage-source-csv" >
+        <table id="tableWidget" class="dataTable"></table>
       </div>
-      <div class="log-data"></div>
-      </div>
-  </section>
 
-  <footer>
-    <div id="footertext">
-        <p class="hide-small">
-          ImgNetMaker - Public Beta Version: v0.1.0-beta.
-          <i class="fab fa-github" aria-hidden="true"></i>
-          <a href="https://github.com/datavana/imgnetmkr" target="_blank">GitHub</a>
+      <div id="folderWrapper" class="tableWrapper hide show-stage-source-folder">
+        <table id="folderWidget" class="dataTable"></table>
+      </div>
+
+      <div id="logWidget" class="log-section">
+        <div class="log-header">
+          <h3>Error Log</h3>
+          <button id="toggleLogBtn">Hide Log</button>
+        </div>
+        <div class="log-data"></div>
+        </div>
+    </section>
+
+    <footer>
+      <div id="footertext">
+          <p class="hide-small">
+            ImgNetMaker - Public Beta Version: v0.1.0-beta.
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <a href="https://github.com/datavana/imgnetmkr" target="_blank">GitHub</a>
+          </p>
+        <p>
+          Developed by the
+          <a href="https://github.com/datavana/imgnetmkr?tab=readme-ov-file#contributions" class="accent">
+            Net Image Research Initiative [NIRI]
+          </a>
         </p>
-      <p>
-        Developed by the
-        <a href="https://github.com/datavana/imgnetmkr?tab=readme-ov-file#contributions" class="accent">
-          Net Image Research Initiative [NIRI]
-        </a>
-      </p>
-    </div>
-    <div id="inslogo">
-      <img src="img/logo_ifk.svg" alt="Logo of the Institute of Communication, University of Münster" class="headerLogo">
-      <img src="img/logo_kc.svg" alt="Logo of King's college, London" class="headerLogo">
-    </div>
-  </footer>
-</div>
+      </div>
+      <div id="inslogo">
+        <img src="img/logo_ifk.svg" alt="Logo of the Institute of Communication, University of Münster" class="headerLogo">
+        <img src="img/logo_kc.svg" alt="Logo of King's college, London" class="headerLogo">
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
