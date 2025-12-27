@@ -155,7 +155,7 @@ Inspiration: iconography by B. Gobbo & J. J. Omena in “Researching visual prot
 
 # Contributions
 
-ImgNetMaker (Imaginative Maker) grew out of an [invited research fellowship] (https://www.uni-muenster.de/Kowi/en/mitteilungen/dr-janna-joceli-omena-neue-fellow-am-ifk.shtml) in September 2025. The Net Image Research Initiative was implemented during the Methods Café Week in Münster, Germany, and the tool was produced under the fellowship’s umbrella. Janna Joceli Omena developed the conceptual framework and the implementation method, while Jakob Jünger led the software development. Participants in the Methods Café Week helped shape the project, including: 
+ImgNetMaker (Imaginative Maker) grew out of an [invited research fellowship](https://www.uni-muenster.de/Kowi/en/mitteilungen/dr-janna-joceli-omena-neue-fellow-am-ifk.shtml) in September 2025. The Net Image Research Initiative was implemented during the Methods Café Week in Münster, Germany, and the tool was produced under the fellowship’s umbrella. Janna Joceli Omena developed the conceptual framework and the implementation method, while Jakob Jünger led the software development. Participants in the Methods Café Week helped shape the project, including: 
 
 - Annabell Jendrilek
 - [Georg Hertkorn](https://orcid.org/0009-0005-0760-2818)
