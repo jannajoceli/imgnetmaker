@@ -49,3 +49,14 @@
 .stage-ready.stage-ready-csv button.show-stage-ready-csv {
     display: inline-block;
 }
+
+/** Network building on its own (mode=network) **/
+.stage-start.mode-network .show-stage-start.show-mode-network,
+.stage-network.mode-network .show-stage-network.show-mode-network {
+    display: flex;
+}
+
+.stage-network .network-box.show-stage-network,
+.stage-network .network-row.show-stage-network {
+    display: flex;
+}

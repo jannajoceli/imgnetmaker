@@ -36,6 +36,7 @@
           It downloads the images when a CSV is provided, pairing each image with
           its metadata, and adding two fields: a clean image filename and a Base64 data URL.
           It then builds the network file for you, ready to lay out in Gephi Lite or Gephi.
+          Network building also works on its own, from any CSV or JSON with one row per image.
         </p>
         <p class="accent">
           Yep — zoom through 10,000-images in a snap. 👩🏻‍💻✨❣️ Heads-up: performance depends on your browser’s
@@ -81,7 +82,7 @@
               (mirrors <code>inm_filename</code>)
             </li>
             <li>
-              <strong>Build network</strong>: choose the columns that connect the images
+              <strong>Network building</strong>: choose the columns that connect the images
               (e.g. hashtags, accounts) and download a network file for
               Gephi Lite (images already on the nodes) or a GEXF for Gephi.
             </li>
@@ -123,13 +124,47 @@
               <code>inm_imgdataurl</code> — the embedded image (data URL).
             </li>
             <li>
-              <strong>Build network</strong>: add your metadata CSV and ImgNetMaker matches it
+              <strong>Network building</strong>: add your metadata CSV and ImgNetMaker matches it
               to the image filenames for you. Choose the columns that connect the images and
               download a network file for Gephi Lite (images already on the nodes) or a GEXF for Gephi.
             </li>
           </ul>
         </div>
 
+      </section>
+
+      <section>
+        <div class="text-block">
+          <h1>
+            <a href="src/index.html?mode=network" class="linkbutton">CSV / JSON → Network</a>
+          </h1>
+        </div>
+
+        <div class="text-block">
+          <h2>📨 Input</h2>
+          <p>
+            A CSV or JSON file with one row per image: a column with the image
+            (a data URL such as <code>inm_imgdataurl</code> from an earlier ImgNetMaker run,
+            or a web link) and metadata columns (e.g. <code>hashtags</code>, <code>account</code>).
+          </p>
+
+          <h2>⚙️ What ImgNetMaker does</h2>
+          <ul>
+            <li>Everything stays in your browser; nothing is uploaded.</li>
+            <li>Connects the images through the columns you choose.</li>
+            <li>Splits cells with several values (e.g. <code>#rio #carnaval</code>, or lists in JSON).</li>
+          </ul>
+
+          <h2>☑️ Output</h2>
+          <ul>
+            <li>
+              <strong>Network building</strong>: a network file for Gephi Lite
+              (images already on the nodes) or a GEXF for Gephi,
+              as images ↔ values or images linked by shared values.
+            </li>
+            <li>Lay it out in Gephi Lite or Gephi (e.g. ForceAtlas2).</li>
+          </ul>
+        </div>
       </section>
     </div>
 

@@ -635,3 +635,7 @@ footer {
 #footertext p.credits span {
     white-space: nowrap;
 }
+
+#processNetworkWrapper .button {
+    white-space: nowrap;
+}

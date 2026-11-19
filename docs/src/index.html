@@ -42,6 +42,8 @@
           <a href="https://gephi.org/gephi-lite/" target="_blank" rel="noopener">Gephi Lite</a>
           (and similar tools) by downloading the images when a CSV is provided, pairing each image with its metadata, and adding two fields:
           a clean image filename and a Base64 data URL.
+          It then builds the network file (Gephi Lite or GEXF); network building also works on its own,
+          from any CSV or JSON with one row per image.
         </p>
         <!--p style="color:#7C00FF;">
         Yep — zoom through 10,000-images in a snap. 👩🏻‍💻✨❣️ Heads-up: performance depends on your browser’s available memory (RAM).
@@ -72,6 +74,14 @@
             <button id="fetchBtn" class="button-inline">Fetch Images</button>
           </div>
 
+        </div>
+
+        <div id="processNetworkWrapper" class="inputWrapper hide show-mode-network show-stage-start show-stage-network">
+          <div class="box">
+            <label for="networkDataFile" class="button">Upload CSV or JSON</label>
+            <input type="file" id="networkDataFile" accept=".csv,.json,text/csv,application/json">
+            <span id="networkDataName"></span>
+          </div>
         </div>
 
         <div id="processFolderWrapper" class="inputWrapper hide show-mode-geturl show-stage-start show-stage-select">
@@ -122,8 +132,8 @@
           <button id="startOverBtn" class="button">Start Over</button>
         </div>
 
-        <div id="networkWidget" class="box network-box hide show-stage-ready">
-          <h3 class="network-title">Build network</h3>
+        <div id="networkWidget" class="box network-box hide show-stage-ready show-stage-network">
+          <h3 class="network-title">Network building</h3>
           <p class="network-hint">
             Connect the images through their metadata and download a network file.
             Lay it out afterwards in Gephi or Gephi Lite.
@@ -138,6 +148,17 @@
               <select id="networkMetaColumn"></select>
             </div>
             <span id="networkMetaReport" class="network-hint"></span>
+          </div>
+
+          <div class="network-row hide show-stage-network">
+            <div class="input-wrapper input-wrapper-select">
+              <label for="networkImageColumn">Column with the images (data URL or web link)</label>
+              <select id="networkImageColumn"></select>
+            </div>
+            <div class="input-wrapper input-wrapper-select">
+              <label for="networkNameColumn">Column with image names or IDs</label>
+              <select id="networkNameColumn"></select>
+            </div>
           </div>
 
           <div class="network-row">
