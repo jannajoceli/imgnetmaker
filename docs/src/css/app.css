@@ -619,3 +619,8 @@ footer {
     color: #666;
     margin: 0;
 }
+
+#footertext p.credits {
+    margin-top: 0.25rem;
+    color: #555;
+}
