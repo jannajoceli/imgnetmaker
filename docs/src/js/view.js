@@ -58,6 +58,7 @@ class PageWidget extends BaseWidgetClass {
         this.logWidget = new LogWidget( 'logWidget', this);
         this.fetchWidget = new FetchWidget('fetchWidget', this);
         this.thumbsWidget = new ThumbsWidget( 'thumbsWidget', this);
+        this.networkWidget = new NetworkWidget('networkWidget', this);
 
         this.initEvents();
     }
@@ -75,6 +76,7 @@ class PageWidget extends BaseWidgetClass {
         this.logWidget.reset();
         this.fetchWidget.reset();
         this.thumbsWidget.reset();
+        this.networkWidget.reset();
 
         this.clearStage();
         this.setStage('start');
