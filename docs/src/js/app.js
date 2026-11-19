@@ -110,6 +110,7 @@ class WebApp {
         this.pageWidget.setStage('ready-' + data.targetName);
         this.pageWidget.setStage('source-' + data.sourceName);
 
+        this.pageWidget.networkWidget.setSource(this.dataModule.getDataSource(data.sourceName));
     }
 
 }

@@ -15,6 +15,8 @@
   <script src="js/events.js"></script>
   <script src="js/model.js"></script>
   <script src="js/view.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/network-widget.js"></script>
   <script src="js/app.js"></script>
 
   <link rel="stylesheet" href="css/app.css">
@@ -118,6 +120,62 @@
           <button id="downloadZipBtn" class="button hide show-stage-ready-zip">Download ZIP</button>
           <button id="downloadCsvBtn" class="button hide show-stage-ready-csv">Download CSV</button>
           <button id="startOverBtn" class="button">Start Over</button>
+        </div>
+
+        <div id="networkWidget" class="box network-box hide show-stage-ready">
+          <h3 class="network-title">Build network</h3>
+          <p class="network-hint">
+            Connect the images through their metadata and download a network file.
+            Lay it out afterwards in Gephi or Gephi Lite.
+          </p>
+
+          <div class="network-row hide show-stage-source-folder">
+            <label for="networkMetaFile" class="button">Add metadata CSV</label>
+            <input type="file" id="networkMetaFile" accept=".csv">
+            <span id="networkMetaName"></span>
+            <div id="networkMetaColumnWrapper" class="input-wrapper input-wrapper-select hide">
+              <label for="networkMetaColumn">Column with the image filename or ID</label>
+              <select id="networkMetaColumn"></select>
+            </div>
+            <span id="networkMetaReport" class="network-hint"></span>
+          </div>
+
+          <div class="network-row">
+            <fieldset class="network-fieldset">
+              <legend>Connect images through</legend>
+              <div id="networkColumns"></div>
+            </fieldset>
+          </div>
+
+          <div class="network-row">
+            <div class="input-wrapper input-wrapper-select">
+              <label for="networkSeparator">Several values in a cell, separated by</label>
+              <select id="networkSeparator">
+                <option value="auto">Detect automatically</option>
+                <option value=";">Semicolon ;</option>
+                <option value=",">Comma ,</option>
+                <option value="|">Pipe |</option>
+                <option value=" ">Space (e.g. #rio #brazil)</option>
+                <option value="none">One value per cell</option>
+              </select>
+            </div>
+            <div class="input-wrapper input-wrapper-select">
+              <label for="networkMode">Network type</label>
+              <select id="networkMode">
+                <option value="bipartite">Images and values (bipartite)</option>
+                <option value="images">Images linked by shared values</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="network-row">
+            <button id="networkLiteBtn" disabled>Download for Gephi Lite</button>
+            <button id="networkGexfBtn" disabled>Download GEXF for Gephi</button>
+            <label class="network-column" title="Larger file; the Image Preview plugin uses the image column and your images folder">
+              <input type="checkbox" id="networkGexfThumbs"> embed thumbnails in GEXF
+            </label>
+          </div>
+          <span id="networkReport" class="network-hint"></span>
         </div>
       </div>
 
