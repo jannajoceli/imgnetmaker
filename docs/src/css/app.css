@@ -452,6 +452,12 @@ footer {
     color: black;
 }
 
+#footertext {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-right: 1.5rem;
+}
+
 #footertext p {
     margin: 0;
     font-weight: normal;
@@ -621,6 +627,11 @@ footer {
 }
 
 #footertext p.credits {
-    margin-top: 0.25rem;
+    margin: 0.2rem 0;
     color: #555;
+}
+
+/* Wrap between roles, never inside a name */
+#footertext p.credits span {
+    white-space: nowrap;
 }
