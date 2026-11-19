@@ -35,6 +35,7 @@
           <a href="https://gephi.org/gephi-lite/" target="_blank" rel="noopener">Gephi Lite</a>.
           It downloads the images when a CSV is provided, pairing each image with
           its metadata, and adding two fields: a clean image filename and a Base64 data URL.
+          It then builds the network file for you, ready to lay out in Gephi Lite or Gephi.
         </p>
         <p class="accent">
           Yep — zoom through 10,000-images in a snap. 👩🏻‍💻✨❣️ Heads-up: performance depends on your browser’s
@@ -79,6 +80,11 @@
               <code>Zip with /images/</code> folder containing the downloaded images
               (mirrors <code>inm_filename</code>)
             </li>
+            <li>
+              <strong>Build network</strong>: choose the columns that connect the images
+              (e.g. hashtags, accounts) and download a network file for
+              Gephi Lite (images already on the nodes) or a GEXF for Gephi.
+            </li>
           </ul>
         </div>
 
@@ -94,8 +100,8 @@
         <div class="text-block">
           <h2>📨 Input</h2>
           <p>
-            Provide an image folder whose filenames match column values in your dataset
-            (e.g., <code>image_filename</code> in a CSV, JSON or other data file).
+            Provide an image folder. Optionally, add a metadata CSV with a column holding
+            the image filenames or IDs (e.g. <code>image_filename</code>) to build a network.
           </p>
 
           <h2>⚙️ What ImgNetMaker does</h2>
@@ -116,7 +122,11 @@
               <code>inm_filename</code> — your input filename, <br>
               <code>inm_imgdataurl</code> — the embedded image (data URL).
             </li>
-            <li>Join the CSV to your original dataset by matching your source column and the new <code>inm_filename</code>.</li>
+            <li>
+              <strong>Build network</strong>: add your metadata CSV and ImgNetMaker matches it
+              to the image filenames for you. Choose the columns that connect the images and
+              download a network file for Gephi Lite (images already on the nodes) or a GEXF for Gephi.
+            </li>
           </ul>
         </div>
 
