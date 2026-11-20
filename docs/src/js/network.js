@@ -132,7 +132,23 @@ class NetworkBuilder {
         rows.forEach(r => Object.keys(r).forEach(k => {
             if (!skip.has(k) && typeof r[k] !== 'object') fieldSet.add(k);
         }));
-        const fields = [...fieldSet];
+        // Columns named like ImgNetMaker's own node fields (label, kind, image) are
+        // kept under a new name instead of being overwritten, e.g. image -> image_original
+        const ownNames = new Set(['label', 'kind', 'image']);
+        const fieldMap = {};
+        const taken = new Set(fieldSet);
+        [...fieldSet].forEach(f => {
+            if (!ownNames.has(f)) {
+                fieldMap[f] = f;
+                return;
+            }
+            let name = f + '_original';
+            let n = 2;
+            while (taken.has(name)) name = `${f}_original_${n++}`;
+            taken.add(name);
+            fieldMap[f] = name;
+        });
+        const fields = [...fieldSet].map(f => fieldMap[f]);
 
         // Image nodes
         const nodes = [];
@@ -151,8 +167,8 @@ class NetworkBuilder {
             imageIds.push(id);
 
             const attributes = {};
-            fields.forEach(f => {
-                if (row[f] !== undefined && row[f] !== null && row[f] !== '') attributes[f] = row[f];
+            Object.entries(fieldMap).forEach(([from, to]) => {
+                if (row[from] !== undefined && row[from] !== null && row[from] !== '') attributes[to] = row[from];
             });
             nodes.push({
                 id,
@@ -392,7 +408,11 @@ class NetworkBuilder {
 
         const reserved = new Set(['label', 'kind', 'image', 'inm_imgdataurl']);
         const metaFields = fields.filter(f => !reserved.has(f));
-        const attrs = ['kind', 'image', ...(includeDataUrl ? ['inm_imgdataurl'] : []), ...metaFields];
+        // Web links are short, so they always travel in the GEXF (Gephi Lite can show them);
+        // data URLs only when asked, as they make the file much larger
+        const hasWebLinks = nodes.some(n => n.dataUrl && !n.dataUrl.startsWith('data:'));
+        const withImages = includeDataUrl || hasWebLinks;
+        const attrs = ['kind', 'image', ...(withImages ? ['inm_imgdataurl'] : []), ...metaFields];
 
         const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
         const degree = new Map();
@@ -415,7 +435,7 @@ class NetworkBuilder {
             const values = {kind: n.kind};
             if (n.kind === 'image') {
                 values.image = n.image;
-                if (includeDataUrl && n.dataUrl) values.inm_imgdataurl = n.dataUrl;
+                if (n.dataUrl && (includeDataUrl || !n.dataUrl.startsWith('data:'))) values.inm_imgdataurl = n.dataUrl;
                 metaFields.forEach(f => {
                     if (n.attributes[f] !== undefined) values[f] = n.attributes[f];
                 });

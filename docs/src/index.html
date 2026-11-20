@@ -189,14 +189,29 @@
             </div>
           </div>
 
-          <div class="network-row">
-            <button id="networkLiteBtn" disabled>Download for Gephi Lite</button>
-            <button id="networkGexfBtn" disabled>Download GEXF for Gephi</button>
-            <label class="network-column" title="Larger file; the Image Preview plugin uses the image column and your images folder">
-              <input type="checkbox" id="networkGexfThumbs"> embed thumbnails in GEXF
-            </label>
+          <div class="network-row network-download">
+            <button id="networkLiteBtn" class="network-primary" disabled>Download network file</button>
+            <span class="network-hint">
+              Opens in <a href="https://gephi.org/gephi-lite/" target="_blank" rel="noopener">Gephi Lite</a>
+              with the images already on the nodes: in Gephi Lite choose <strong>Open a local file</strong>
+              (dragging the file onto the window does not work).
+            </span>
           </div>
           <span id="networkReport" class="network-hint"></span>
+
+          <details class="network-more">
+            <summary>Using Gephi desktop? Download a GEXF instead</summary>
+            <div class="network-row">
+              <button id="networkGexfBtn" disabled>Download GEXF</button>
+              <label class="network-column" title="Makes the file much larger">
+                <input type="checkbox" id="networkGexfThumbs"> embed the image thumbnails
+              </label>
+            </div>
+            <p class="network-hint">
+              For the Image Preview plugin: in Preview, tick <em>Render Nodes As Images</em> and set
+              <em>Image Path</em> to your images folder (the plugin reads the <code>image</code> column).
+            </p>
+          </details>
         </div>
       </div>
 

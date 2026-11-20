@@ -335,7 +335,7 @@ class NetworkWidget extends BaseWidgetClass {
             if (format === 'gephi-lite') {
                 const data = NetworkBuilder.toGephiLite(network, 'ImgNetMaker network');
                 const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
-                saveAs(blob, 'imgnetmaker-network.gephi-lite.json');
+                saveAs(blob, 'imgnetmaker-network-gephi-lite.json');
             } else {
                 const gexf = NetworkBuilder.toGexf(network, document.getElementById('networkGexfThumbs').checked);
                 const blob = new Blob([gexf], {type: 'application/xml'});

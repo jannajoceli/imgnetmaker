@@ -646,3 +646,34 @@ footer {
     font-size: 0.95rem;
     color: #555;
 }
+
+/* Main download button: the Gephi Lite network file */
+button.network-primary {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+button.network-primary:disabled {
+    border-color: #999;
+    color: #666;
+}
+
+.network-download {
+    align-items: center;
+}
+
+.network-download .network-hint {
+    flex: 1 1 20rem;
+}
+
+.network-more summary {
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.network-more .network-hint {
+    margin-top: 0.5rem;
+}
