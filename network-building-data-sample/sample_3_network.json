@@ -1,0 +1,266 @@
+{
+  "posts": [
+    {
+      "id": "post_01",
+      "image": "https://picsum.photos/id/10/400/300",
+      "hashtags": [
+        "#samba",
+        "#beach"
+      ],
+      "author": {
+        "handle": "@rio_daily",
+        "type": "page"
+      },
+      "date": "2026-02-13"
+    },
+    {
+      "id": "post_02",
+      "image": "https://picsum.photos/id/11/400/300",
+      "hashtags": [
+        "#carnaval",
+        "#samba",
+        "#street"
+      ],
+      "author": {
+        "handle": "@rio_daily",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    },
+    {
+      "id": "post_03",
+      "image": "https://picsum.photos/id/12/400/300",
+      "hashtags": [
+        "#rio"
+      ],
+      "author": {
+        "handle": "@rio_daily",
+        "type": "page"
+      },
+      "date": "2026-02-16"
+    },
+    {
+      "id": "post_04",
+      "image": "https://picsum.photos/id/13/400/300",
+      "hashtags": [
+        "#carnaval",
+        "#parade"
+      ],
+      "author": {
+        "handle": "@rio_daily",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    },
+    {
+      "id": "post_05",
+      "image": "https://picsum.photos/id/14/400/300",
+      "hashtags": [
+        "#rio",
+        "#music"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-13"
+    },
+    {
+      "id": "post_06",
+      "image": "https://picsum.photos/id/15/400/300",
+      "hashtags": [
+        "#rio"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    },
+    {
+      "id": "post_07",
+      "image": "https://picsum.photos/id/16/400/300",
+      "hashtags": [
+        "#rio",
+        "#carnaval"
+      ],
+      "author": {
+        "handle": "@rio_daily",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    },
+    {
+      "id": "post_08",
+      "image": "https://picsum.photos/id/17/400/300",
+      "hashtags": [
+        "#street"
+      ],
+      "author": {
+        "handle": "@samba_school",
+        "type": "page"
+      },
+      "date": "2026-02-14"
+    },
+    {
+      "id": "post_09",
+      "image": "https://picsum.photos/id/18/400/300",
+      "hashtags": [
+        "#carnaval",
+        "#street",
+        "#samba"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-18"
+    },
+    {
+      "id": "post_10",
+      "image": "https://picsum.photos/id/19/400/300",
+      "hashtags": [
+        "#carnaval"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    },
+    {
+      "id": "post_11",
+      "image": "https://picsum.photos/id/20/400/300",
+      "hashtags": [
+        "#beach",
+        "#samba",
+        "#rio"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-18"
+    },
+    {
+      "id": "post_12",
+      "image": "https://picsum.photos/id/21/400/300",
+      "hashtags": [
+        "#rio"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-14"
+    },
+    {
+      "id": "post_13",
+      "image": "https://picsum.photos/id/22/400/300",
+      "hashtags": [
+        "#music",
+        "#parade"
+      ],
+      "author": {
+        "handle": "@beachlife_br",
+        "type": "page"
+      },
+      "date": "2026-02-16"
+    },
+    {
+      "id": "post_14",
+      "image": "https://picsum.photos/id/23/400/300",
+      "hashtags": [
+        "#parade",
+        "#samba",
+        "#music"
+      ],
+      "author": {
+        "handle": "@carnaval_fan",
+        "type": "fan"
+      },
+      "date": "2026-02-14"
+    },
+    {
+      "id": "post_15",
+      "image": "https://picsum.photos/id/24/400/300",
+      "hashtags": [
+        "#beach",
+        "#rio",
+        "#street"
+      ],
+      "author": {
+        "handle": "@beachlife_br",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    },
+    {
+      "id": "post_16",
+      "image": "https://picsum.photos/id/25/400/300",
+      "hashtags": [
+        "#night",
+        "#parade"
+      ],
+      "author": {
+        "handle": "@samba_school",
+        "type": "page"
+      },
+      "date": "2026-02-15"
+    },
+    {
+      "id": "post_17",
+      "image": "https://picsum.photos/id/26/400/300",
+      "hashtags": [
+        "#carnaval",
+        "#rio",
+        "#street"
+      ],
+      "author": {
+        "handle": "@samba_school",
+        "type": "page"
+      },
+      "date": "2026-02-14"
+    },
+    {
+      "id": "post_18",
+      "image": "https://picsum.photos/id/27/400/300",
+      "hashtags": [
+        "#samba",
+        "#beach"
+      ],
+      "author": {
+        "handle": "@samba_school",
+        "type": "page"
+      },
+      "date": "2026-02-13"
+    },
+    {
+      "id": "post_19",
+      "image": "https://picsum.photos/id/28/400/300",
+      "hashtags": [
+        "#carnaval",
+        "#music",
+        "#street"
+      ],
+      "author": {
+        "handle": "@street_photo",
+        "type": "page"
+      },
+      "date": "2026-02-15"
+    },
+    {
+      "id": "post_20",
+      "image": "https://picsum.photos/id/29/400/300",
+      "hashtags": [
+        "#night",
+        "#street"
+      ],
+      "author": {
+        "handle": "@samba_school",
+        "type": "page"
+      },
+      "date": "2026-02-17"
+    }
+  ]
+}
