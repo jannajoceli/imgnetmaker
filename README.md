@@ -4,6 +4,9 @@ This repository contains tools and workflows for image network and context analy
 
 **1. ImgNetMaker**
 
+ImgNetMaker is a browser-based tool that turns image collections into network-ready data for visualising image networks in Gephi Lite and Gephi. 
+All processing happens locally in the browser; no files are uploaded.
+
 Converts your CSV and/or image folder into network-ready data for visualising image networks with Gephi Lite. 
 It downloads the images when a CSV is provided, pairing each image with its metadata, and adding two fields:
 a clean image filename and a Base64 data URL.
