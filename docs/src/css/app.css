@@ -639,3 +639,10 @@ footer {
 #processNetworkWrapper .button {
     white-space: nowrap;
 }
+
+/* One-line hint under each entry button on the welcome page */
+.mode-hint {
+    margin: 0.75rem 0 0;
+    font-size: 0.95rem;
+    color: #555;
+}

@@ -50,8 +50,9 @@
 
         <div class="text-block">
           <h1>
-            <a href="src/index.html?mode=getimg" class="linkbutton">CSV → Images + Data URLs</a>
+            <a href="src/index.html?mode=getimg" class="linkbutton">CSV with image URLs → Images + Data URLs</a>
           </h1>
+          <p class="mode-hint">⬇️ Downloads the images from the web</p>
         </div>
 
         <div class="text-block">
@@ -96,6 +97,7 @@
           <h1>
             <a href="src/index.html?mode=geturl" class="linkbutton">Image folder → Data URLs</a>
           </h1>
+          <p class="mode-hint">💻 Uses images already on your computer, nothing is downloaded</p>
         </div>
 
         <div class="text-block">
@@ -138,6 +140,7 @@
           <h1>
             <a href="src/index.html?mode=network" class="linkbutton">CSV / JSON → Network</a>
           </h1>
+          <p class="mode-hint">🔗 Builds the network from data that already holds the images</p>
         </div>
 
         <div class="text-block">
@@ -170,35 +173,21 @@
 
      <section>
           <div class="text-block">
-                <h2>What's next: How to create image networks with Gephi Lite?</h2>
+                <h2>What's next: how to see your image network</h2>
 
-                <p>
-                    Build the bipartite network with
-                    <a href="https://medialab.github.io/table2net/" target="_blank" rel="noopener">Table2Net</a>.
-                </p>
-
+                <p><strong>In Gephi Lite</strong> (file ending in <code>.gephi-lite.json</code>)</p>
                 <ul>
-                    <li>Include <code>inm_imgdataurl</code> as an attribute on the <strong>image</strong> nodes (along with any
-                        other metadata).
-                    </li>
-                    <li>Export as <strong>GEXF</strong> (nodes, edges, and attributes).</li>
-                </ul>
-                <p>
-                    Open in Gephi Lite
-                </p>
-                <ul>
-                    <li>Drag and drop the <code>.gexf</code> file into <a href="https://gephi.org/gephi-lite/" target="_blank" rel="noopener">Gephi Lite</a>.</li>
-                </ul>
-                <p>
-                    Display images
-                </p>
-                <ul>
-                    <li>Go to <strong>Appearance → Nodes → Images</strong>.</li>
-                    <li>Set images from <em>Attribute</em> and choose the <code>inm_imgdataurl</code> column (in Gephi Lite it may
-                        appear under some name such as <em>attr_1_1</em>).
-                    </li>
+                    <li>Drag and drop the file into <a href="https://gephi.org/gephi-lite/" target="_blank" rel="noopener">Gephi Lite</a>. The images are already on the nodes.</li>
+                    <li>Spatialise with <strong>Layout → ForceAtlas2</strong>.</li>
+                    <li>To switch images off or on: <strong>Appearance → Nodes → Images</strong>, column <code>inm_imgdataurl</code>.</li>
                 </ul>
 
+                <p><strong>In Gephi desktop</strong> (file ending in <code>.gexf</code>)</p>
+                <ul>
+                    <li>Open the file and spatialise with ForceAtlas2.</li>
+                    <li>With the Image Preview plugin: in <strong>Preview</strong>, tick <em>Render Nodes As Images</em> and set
+                        <em>Image Path</em> to your images folder (the <code>images</code> folder from the ImgNetMaker ZIP, or your own folder).</li>
+                </ul>
             </div>
       </section>
   </div>
@@ -206,19 +195,18 @@
 
     <footer>
       <div id="footertext">
-        <p class="hide-small">
-          ImgNetMaker - Public Beta Version: v0.1.0-beta.
+        <p>
+          ImgNetMaker - Public Beta Version: v0.2.0-beta.
           <i class="fab fa-github" aria-hidden="true"></i>
           <a href="https://github.com/jannajoceli/imgnetmaker" target="_blank" rel="noopener">GitHub</a>
+          |
+          Supported by the
+          <a href="https://github.com/datavana/imgnetmkr?tab=readme-ov-file#contributions" class="accent" target="_blank" rel="noopener">Net Image Research Initiative [NIRI]</a>
         </p>
         <p class="credits">
           <span>Concept, Method &amp; Interface Design: Janna Joceli Omena</span> |
           <span>Engineering Lead: Jakob Jünger</span> |
           <span>Development: Katharina Maubach, Lennart Höfig, Jane Knispel, Janna Joceli Omena &amp; Claude</span>
-        </p>
-        <p>
-          Supported by the
-          <a href="https://github.com/datavana/imgnetmkr?tab=readme-ov-file#contributions" class="accent" target="_blank" rel="noopener">Net Image Research Initiative [NIRI]</a>
         </p>
       </div>
       <div id="inslogo">
